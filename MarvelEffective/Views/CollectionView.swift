@@ -1,6 +1,8 @@
 import Foundation
 import UIKit
 
+
+
 class CollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var cells = [Cards]()
@@ -62,48 +64,48 @@ class CollectionView: UICollectionView, UICollectionViewDelegate, UICollectionVi
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-            if decelerate {
-                setupCell()
-            }
+        if decelerate {
+            setupCell()
+        }
+    }
+    
+    func setupCell() {
+        let indexPath = IndexPath(item: layout.currentPage, section: 0)
+        if let cell = cellForItem(at: indexPath) {
+            transformCell(cell)
+        }
+    }
+    
+    func transformCell(_ cell: UICollectionViewCell, isEffect: Bool = true) {
+        // Ваша реализация функции transformCell здесь как метод класса
+        if !isEffect {
+            cell.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
+            return
         }
         
-        func setupCell() {
-            let indexPath = IndexPath(item: layout.currentPage, section: 0)
-            if let cell = cellForItem(at: indexPath) {
-                transformCell(cell)
-            }
+        UIView.animate(withDuration: 0.2) {
+            cell.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
         }
         
-        func transformCell(_ cell: UICollectionViewCell, isEffect: Bool = true) {
-            // Ваша реализация функции transformCell здесь как метод класса
-            if !isEffect {
-                cell.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-                return
-            }
-
-            UIView.animate(withDuration: 0.2) {
-                cell.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
-            }
-
-            for otherCell in visibleCells {
-                if let indexPath = indexPath(for: otherCell) {
-                    if indexPath.item != layout.currentPage {
-                        UIView.animate(withDuration: 0.2) {
-                            otherCell.transform = .identity
-                        }
+        for otherCell in visibleCells {
+            if let indexPath = indexPath(for: otherCell) {
+                if indexPath.item != layout.currentPage {
+                    UIView.animate(withDuration: 0.2) {
+                        otherCell.transform = .identity
                     }
                 }
             }
         }
-        
-  
-        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            if indexPath.item == layout.currentPage {
-            } else {
-                collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-                layout.currentPage = indexPath.item
-                layout.previousOffset = layout.updateOffset(collectionView)
-                setupCell()
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.item == layout.currentPage {
+        } else {
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            layout.currentPage = indexPath.item
+            layout.previousOffset = layout.updateOffset(collectionView)
+            setupCell()
         }
     }
 }

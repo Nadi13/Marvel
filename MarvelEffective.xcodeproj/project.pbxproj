@@ -16,7 +16,6 @@
 		05A35E1D2B98483300E002EB /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A35E1C2B98483300E002EB /* FontSize.swift */; };
 		05A35E322B986CC500E002EB /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A35E312B986CC500E002EB /* Cards.swift */; };
 		05A44C752B9B2ECA00DDF0D9 /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A44C742B9B2ECA00DDF0D9 /* TriangleView.swift */; };
-		05A44C782B9B3C1C00DDF0D9 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A44C772B9B3C1C00DDF0D9 /* UIImage.swift */; };
 		05FEA7902B8BBD5C00C81A8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FEA78F2B8BBD5C00C81A8C /* AppDelegate.swift */; };
 		05FEA7922B8BBD5C00C81A8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FEA7912B8BBD5C00C81A8C /* SceneDelegate.swift */; };
 		05FEA7942B8BBD5C00C81A8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FEA7932B8BBD5C00C81A8C /* ViewController.swift */; };
@@ -35,7 +34,6 @@
 		05A35E1C2B98483300E002EB /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		05A35E312B986CC500E002EB /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		05A44C742B9B2ECA00DDF0D9 /* TriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
-		05A44C772B9B3C1C00DDF0D9 /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		05FEA78C2B8BBD5C00C81A8C /* MarvelEffective.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelEffective.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05FEA78F2B8BBD5C00C81A8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05FEA7912B8BBD5C00C81A8C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,14 +71,6 @@
 			path = ModelView;
 			sourceTree = "<group>";
 		};
-		05A44C762B9B3C0000DDF0D9 /* extension */ = {
-			isa = PBXGroup;
-			children = (
-				05A44C772B9B3C1C00DDF0D9 /* UIImage.swift */,
-			);
-			path = extension;
-			sourceTree = "<group>";
-		};
 		05FEA7832B8BBD5C00C81A8C = {
 			isa = PBXGroup;
 			children = (
@@ -101,7 +91,6 @@
 		05FEA78E2B8BBD5C00C81A8C /* MarvelEffective */ = {
 			isa = PBXGroup;
 			children = (
-				05A44C762B9B3C0000DDF0D9 /* extension */,
 				0551C6552B9AA58C00B6881A /* Layouts */,
 				05A35E302B986CA700E002EB /* ModelView */,
 				05FEA7AD2B98431100C81A8C /* Fonts */,
@@ -220,7 +209,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				05A44C752B9B2ECA00DDF0D9 /* TriangleView.swift in Sources */,
-				05A44C782B9B3C1C00DDF0D9 /* UIImage.swift in Sources */,
 				05FEA7942B8BBD5C00C81A8C /* ViewController.swift in Sources */,
 				05A35E1D2B98483300E002EB /* FontSize.swift in Sources */,
 				055853692B9AFCAA0046CA09 /* CollectionView.swift in Sources */,

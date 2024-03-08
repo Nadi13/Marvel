@@ -1,28 +1,24 @@
 import UIKit
 
-
-
-class ViewController: UIViewController {
+class ViewController: UIViewController{
     
-
     private let collectionView = CollectionView()
-    
     
     private let triangleView: TriangleView = {
         let triangleView = TriangleView(frame: CGRect(x: 0,y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
         triangleView.translatesAutoresizingMaskIntoConstraints = false
+        triangleView.backgroundColor = .clear
         return triangleView
     }()
-
-
+    
     private lazy var logo: UIImageView = {
         let logo = UIImageView()
         logo.image = UIImage(named: "logo")
         logo.contentMode = .scaleToFill
         logo.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-        logo.heightAnchor.constraint(equalToConstant: 27),
-        logo.widthAnchor.constraint(equalToConstant: 128)
+            logo.heightAnchor.constraint(equalToConstant: 27),
+            logo.widthAnchor.constraint(equalToConstant: 128)
         ])
         return logo
     }()
@@ -30,8 +26,8 @@ class ViewController: UIViewController {
     private func setImage(){
         view.addSubview(logo)
         NSLayoutConstraint.activate([
-        logo.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-        logo.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            logo.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            logo.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
     
@@ -47,8 +43,8 @@ class ViewController: UIViewController {
     private func setText(){
         view.addSubview(label)
         NSLayoutConstraint.activate([
-        label.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 54),
-        label.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            label.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 54),
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
     
@@ -62,9 +58,10 @@ class ViewController: UIViewController {
         ])
         collectionView.set(cells: Cards.fetchCards())
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = Colors.black
         
         view.addSubview(triangleView)
@@ -72,6 +69,7 @@ class ViewController: UIViewController {
         setImage()
         setText()
         setView()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -82,12 +80,12 @@ class ViewController: UIViewController {
         
         collectionView.layout.currentPage = indexPath.item
         collectionView.layout.previousOffset = collectionView.layout.updateOffset(collectionView)
-               
-               if let cell = collectionView.cellForItem(at:indexPath){
-                   collectionView.transformCell(cell)
+        
+        if let cell = collectionView.cellForItem(at:indexPath){
+            collectionView.transformCell(cell)
         }
     }
-
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }

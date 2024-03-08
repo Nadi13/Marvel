@@ -2,8 +2,8 @@ import UIKit
 import Foundation
 
 struct Cards {
-    var image: UIImage
-    var name: String
+    let image: UIImage?
+    let name: String
     
     static func fetchCards() ->
     [Cards]{
@@ -16,6 +16,7 @@ struct Cards {
         let thirdItem =
         Cards(image: UIImage(named: "ironman")!,
               name: String(localized:"iron"))
+        
         return [firstItem, secondItem, thirdItem]
     }
 }

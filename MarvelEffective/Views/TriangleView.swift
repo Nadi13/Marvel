@@ -1,10 +1,9 @@
 import UIKit
 
-class TriangleView: UIScrollView {
+class TriangleView: UIView {
     
     override init(frame: CGRect){
         super.init(frame : frame)
-        self.backgroundColor = .clear
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -20,14 +19,7 @@ class TriangleView: UIScrollView {
         context.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
         context.addLine(to: CGPoint(x: rect.minX, y: rect.maxY))
         context.closePath()
-        context.setFillColor(red: 139.0, green: 0.0, blue: 0.0, alpha: 1)
+        context.setFillColor(red:139.0, green: 0.0, blue: 0.0, alpha: 1.0)
         context.fillPath()
-
-
     }
 }
-
-
-
-
-
