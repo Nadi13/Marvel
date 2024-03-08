@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		053F2FE82B98872500FFBB5F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053F2FE72B98872500FFBB5F /* CollectionViewCell.swift */; };
+		0551C6572B9AA5A500B6881A /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0551C6562B9AA5A500B6881A /* CustomLayout.swift */; };
 		05A35E1D2B98483300E002EB /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A35E1C2B98483300E002EB /* FontSize.swift */; };
 		05A35E1F2B984A7D00E002EB /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 05A35E1E2B984A7D00E002EB /* Inter-Bold.otf */; };
 		05A35E212B984AA200E002EB /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 05A35E202B984AA200E002EB /* Inter-Regular.otf */; };
 		05A35E2F2B98683800E002EB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05A35E2E2B98683800E002EB /* Localizable.strings */; };
+		05A35E322B986CC500E002EB /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A35E312B986CC500E002EB /* Cards.swift */; };
 		05FEA7902B8BBD5C00C81A8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FEA78F2B8BBD5C00C81A8C /* AppDelegate.swift */; };
 		05FEA7922B8BBD5C00C81A8C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FEA7912B8BBD5C00C81A8C /* SceneDelegate.swift */; };
 		05FEA7942B8BBD5C00C81A8C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FEA7932B8BBD5C00C81A8C /* ViewController.swift */; };
@@ -21,12 +24,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		053F2FE72B98872500FFBB5F /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		0551C6562B9AA5A500B6881A /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 		05A35E1C2B98483300E002EB /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		05A35E1E2B984A7D00E002EB /* Inter-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Bold.otf"; path = "../../../../Downloads/Inter-4.0/extras/otf/Inter-Bold.otf"; sourceTree = "<group>"; };
 		05A35E202B984AA200E002EB /* Inter-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Inter-Regular.otf"; path = "../../../../Downloads/Inter-4.0/extras/otf/Inter-Regular.otf"; sourceTree = "<group>"; };
 		05A35E2B2B98669D00E002EB /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "en-GB"; path = "en-GB.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		05A35E2D2B9866AB00E002EB /* en-GB */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "en-GB"; path = "en-GB.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		05A35E2E2B98683800E002EB /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = MarvelEffective/Localizable.strings; sourceTree = SOURCE_ROOT; };
+		05A35E312B986CC500E002EB /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		05FEA78C2B8BBD5C00C81A8C /* MarvelEffective.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelEffective.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05FEA78F2B8BBD5C00C81A8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05FEA7912B8BBD5C00C81A8C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +54,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0551C6552B9AA58C00B6881A /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				0551C6562B9AA5A500B6881A /* CustomLayout.swift */,
+			);
+			path = Layouts;
+			sourceTree = "<group>";
+		};
+		05A35E302B986CA700E002EB /* ModelView */ = {
+			isa = PBXGroup;
+			children = (
+				05A35E312B986CC500E002EB /* Cards.swift */,
+			);
+			path = ModelView;
+			sourceTree = "<group>";
+		};
 		05FEA7832B8BBD5C00C81A8C = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +90,8 @@
 		05FEA78E2B8BBD5C00C81A8C /* MarvelEffective */ = {
 			isa = PBXGroup;
 			children = (
+				0551C6552B9AA58C00B6881A /* Layouts */,
+				05A35E302B986CA700E002EB /* ModelView */,
 				05FEA7AD2B98431100C81A8C /* Fonts */,
 				05FEA7A72B8BF4CF00C81A8C /* LocalTools */,
 				05FEA78F2B8BBD5C00C81A8C /* AppDelegate.swift */,
@@ -94,6 +118,7 @@
 		05FEA7AA2B8C2ACA00C81A8C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				053F2FE72B98872500FFBB5F /* CollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -184,7 +209,10 @@
 			files = (
 				05FEA7942B8BBD5C00C81A8C /* ViewController.swift in Sources */,
 				05A35E1D2B98483300E002EB /* FontSize.swift in Sources */,
+				053F2FE82B98872500FFBB5F /* CollectionViewCell.swift in Sources */,
 				05FEA7A92B8BF4E600C81A8C /* Color.swift in Sources */,
+				0551C6572B9AA5A500B6881A /* CustomLayout.swift in Sources */,
+				05A35E322B986CC500E002EB /* Cards.swift in Sources */,
 				05FEA7902B8BBD5C00C81A8C /* AppDelegate.swift in Sources */,
 				05FEA7922B8BBD5C00C81A8C /* SceneDelegate.swift in Sources */,
 			);
