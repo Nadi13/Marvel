@@ -69,7 +69,6 @@ class ViewController: UIViewController{
         setImage()
         setText()
         setView()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
