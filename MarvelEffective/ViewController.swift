@@ -29,7 +29,7 @@ class ViewController: UIViewController{
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = String(localized:"choose")
         label.textColor = Colors.white
-        label.font = Fonts.Inter_28!
+        label.font = Fonts.Inter_28
         return label
     }()
     
@@ -70,13 +70,14 @@ class ViewController: UIViewController{
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         
         collectionView.layout.currentPage = indexPath.item
+        
         collectionView.layout.previousOffset = collectionView.layout.updateOffset(collectionView)
         
         if let cell = collectionView.cellForItem(at:indexPath){
             collectionView.transformCell(cell)
-            collectionView.updateTriangleColor(color: collectionView.cellColors[indexPath.item])
         }
-    }
+
+}
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent

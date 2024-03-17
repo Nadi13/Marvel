@@ -8,13 +8,13 @@ struct Cards {
     static func fetchCards() ->
     [Cards]{
         let firstItem =
-        Cards(image: UIImage(named: "deadpool")!,
+        Cards(image: UIImage(named: "deadpool"),
               name: String(localized:"deadpool"))
         let secondItem =
-        Cards(image: UIImage(named: "spiderman")!,
+        Cards(image: UIImage(named: "spiderman"),
               name: String(localized:"spider"))
         let thirdItem =
-        Cards(image: UIImage(named: "ironman")!,
+        Cards(image: UIImage(named: "ironman"),
               name: String(localized:"iron"))
         
         return [firstItem, secondItem, thirdItem]

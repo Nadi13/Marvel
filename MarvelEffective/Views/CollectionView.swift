@@ -3,13 +3,15 @@ import UIKit
 
 
 
-class CollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class CollectionView: UICollectionView{
     
     var cells = [Cards]()
     
+    let layout = CustomLayout()
+    
     let screenWidth = UIScreen.main.bounds.size.width
     let screenHeight = UIScreen.main.bounds.size.height
-    let cellSpacing = 50.0
+    let cellSpacing = (1/16)*UIScreen.main.bounds.size.height
     
     var itemW: CGFloat {
         return screenWidth * 0.65
@@ -19,19 +21,24 @@ class CollectionView: UICollectionView, UICollectionViewDelegate, UICollectionVi
         return screenHeight * 0.5
     }
     
-    private let triangleView: TriangleView = {
+    let triangleView: TriangleView = {
         let triangleView = TriangleView(frame: CGRect(x: 0,y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
         triangleView.translatesAutoresizingMaskIntoConstraints = false
         triangleView.backgroundColor = .clear
         return triangleView
     }()
     
-    let layout = CustomLayout()
-    
-    var cellColors: [UIColor] = []
-    
     init() {
         super.init(frame: .zero, collectionViewLayout: layout)
+        
+        setupCollectionView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupCollectionView(){
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = cellSpacing
         layout.minimumInteritemSpacing = cellSpacing
@@ -48,55 +55,34 @@ class CollectionView: UICollectionView, UICollectionViewDelegate, UICollectionVi
         dataSource = self
         delegate = self
         translatesAutoresizingMaskIntoConstraints = false
+        
+        reloadData()
+        
     }
-    
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     
     func set(cells:[Cards]){
         self.cells = cells
-        setColorCell()
-        reloadData()
-        layoutIfNeeded()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cells.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier:CollectionViewCell.reuseID, for: indexPath) as! CollectionViewCell
-        cell.mainImageView.image = cells[indexPath.row].image
-        cell.nameHeroe.text = cells[indexPath.row].name
         
-        return cell
+        let indexPath = IndexPath(item: 1, section: 0)
+        updateTriangleColor(elem: cells[indexPath.item])
     }
     
-    func setColorCell() {
-        cellColors.removeAll()
-        for cell in cells {
-            cellColors.append(cell.image!.areaAverage() ?? .blue)
-            }
-        }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize (width: itemW, height: itemH)
+    func updateTriangleColor (elem: Cards) {
+        guard let img = elem.image else {return}
+        triangleView.triangleColor = img.areaAverage ?? .red
     }
+
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if decelerate {
-                setupCell()
+            setupCell()
         }
     }
     
     func setupCell() {
         let indexPath = IndexPath(item: layout.currentPage, section: 0)
         if let cell = cellForItem(at: indexPath) {
-            transformCell(cell)
-            updateTriangleColor(color: cellColors[layout.currentPage])
+        transformCell(cell)
         }
     }
     
@@ -106,9 +92,10 @@ class CollectionView: UICollectionView, UICollectionViewDelegate, UICollectionVi
             return
         }
         
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: 0.2){
             cell.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
         }
+        
         
         for otherCell in visibleCells {
             if let indexPath = indexPath(for: otherCell) {
@@ -121,18 +108,13 @@ class CollectionView: UICollectionView, UICollectionViewDelegate, UICollectionVi
         }
     }
     
+
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.item == layout.currentPage {
-        } else {
-            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-            layout.currentPage = indexPath.item
-            layout.previousOffset = layout.updateOffset(collectionView)
-            setupCell()
-        }
-    }
-    
-    func updateTriangleColor (color : UIColor){
-        triangleView.triangleColor = color
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        let indexPath = IndexPath(item: layout.currentPage, section: 0)
+        let card = cells[indexPath.row]
+        
+        updateTriangleColor(elem: card)
     }
 }

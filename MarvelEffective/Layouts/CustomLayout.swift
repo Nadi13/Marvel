@@ -1,6 +1,6 @@
 import UIKit
 
-class CustomLayout: UICollectionViewFlowLayout {
+class CustomLayout: UICollectionViewFlowLayout{
     
     var previousOffset: CGFloat = 0.0
     var currentPage = 0
@@ -32,4 +32,5 @@ class CustomLayout: UICollectionViewFlowLayout {
         
         return offset
     }
+
 }

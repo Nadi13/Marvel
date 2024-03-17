@@ -21,20 +21,26 @@ class CollectionViewCell: UICollectionViewCell {
         name.font = Fonts.Inter_32
         return name
     }()
+    
     override init(frame: CGRect){
         super.init(frame: frame)
         
+        setupUI()
+    }
+    
+    private func setupUI(){
         addSubview(mainImageView)
         addSubview(nameHeroe)
         
-        mainImageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        mainImageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        mainImageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        mainImageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        NSLayoutConstraint.activate([
+        mainImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+        mainImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+        mainImageView.topAnchor.constraint(equalTo: topAnchor),
+        mainImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
         
-        nameHeroe.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20.0).isActive = true
-        nameHeroe.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        nameHeroe.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25.0).isActive = true
+        nameHeroe.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20.0),
+        nameHeroe.trailingAnchor.constraint(equalTo: trailingAnchor),
+        nameHeroe.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25.0)])
     }
     
     required init?(coder aDecoder: NSCoder) {
