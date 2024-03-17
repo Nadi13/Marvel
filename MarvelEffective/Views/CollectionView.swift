@@ -19,6 +19,13 @@ class CollectionView: UICollectionView, UICollectionViewDelegate, UICollectionVi
         return screenHeight * 0.5
     }
     
+    private let triangleView: TriangleView = {
+        let triangleView = TriangleView(frame: CGRect(x: 0,y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+        triangleView.translatesAutoresizingMaskIntoConstraints = false
+        triangleView.backgroundColor = .clear
+        return triangleView
+    }()
+    
     let layout = CustomLayout()
     
     init() {
@@ -28,9 +35,10 @@ class CollectionView: UICollectionView, UICollectionViewDelegate, UICollectionVi
         layout.minimumInteritemSpacing = cellSpacing
         layout.itemSize.width = itemW
         
+        backgroundView = triangleView
+        
         backgroundColor = .none
         contentInsetAdjustmentBehavior = .never
-        showsHorizontalScrollIndicator = false
         contentInset = UIEdgeInsets(top: 0.0, left: cellSpacing,  bottom: 0.0, right: cellSpacing)
         decelerationRate = .fast
         register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.reuseID)
@@ -72,12 +80,12 @@ class CollectionView: UICollectionView, UICollectionViewDelegate, UICollectionVi
     func setupCell() {
         let indexPath = IndexPath(item: layout.currentPage, section: 0)
         if let cell = cellForItem(at: indexPath) {
+            updateTriangleColor(color: cells[indexPath.row].image!.areaAverage())
             transformCell(cell)
         }
     }
     
     func transformCell(_ cell: UICollectionViewCell, isEffect: Bool = true) {
-        // Ваша реализация функции transformCell здесь как метод класса
         if !isEffect {
             cell.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
             return
@@ -107,5 +115,9 @@ class CollectionView: UICollectionView, UICollectionViewDelegate, UICollectionVi
             layout.previousOffset = layout.updateOffset(collectionView)
             setupCell()
         }
+    }
+    
+    func updateTriangleColor (color : UIColor){
+        triangleView.triangleColor = color
     }
 }

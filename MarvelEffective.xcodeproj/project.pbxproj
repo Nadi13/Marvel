@@ -13,6 +13,7 @@
 		0545D7C92B9B1F35009E55F5 /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0545D7C82B9B1F35009E55F5 /* Inter-Regular.otf */; };
 		0551C6572B9AA5A500B6881A /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0551C6562B9AA5A500B6881A /* CustomLayout.swift */; };
 		055853692B9AFCAA0046CA09 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055853682B9AFCAA0046CA09 /* CollectionView.swift */; };
+		059611682BA6CA4000E1BA02 /* ExtensionUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059611672BA6CA4000E1BA02 /* ExtensionUIImage.swift */; };
 		05A35E1D2B98483300E002EB /* FontSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A35E1C2B98483300E002EB /* FontSize.swift */; };
 		05A35E322B986CC500E002EB /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A35E312B986CC500E002EB /* Cards.swift */; };
 		05A44C752B9B2ECA00DDF0D9 /* TriangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A44C742B9B2ECA00DDF0D9 /* TriangleView.swift */; };
@@ -31,6 +32,7 @@
 		0545D7C82B9B1F35009E55F5 /* Inter-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.otf"; sourceTree = "<group>"; };
 		0551C6562B9AA5A500B6881A /* CustomLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 		055853682B9AFCAA0046CA09 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
+		059611672BA6CA4000E1BA02 /* ExtensionUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIImage.swift; sourceTree = "<group>"; };
 		05A35E1C2B98483300E002EB /* FontSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSize.swift; sourceTree = "<group>"; };
 		05A35E312B986CC500E002EB /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		05A44C742B9B2ECA00DDF0D9 /* TriangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TriangleView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,14 @@
 			path = Layouts;
 			sourceTree = "<group>";
 		};
+		059611662BA6CA0C00E1BA02 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				059611672BA6CA4000E1BA02 /* ExtensionUIImage.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		05A35E302B986CA700E002EB /* ModelView */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +101,7 @@
 		05FEA78E2B8BBD5C00C81A8C /* MarvelEffective */ = {
 			isa = PBXGroup;
 			children = (
+				059611662BA6CA0C00E1BA02 /* Extension */,
 				0551C6552B9AA58C00B6881A /* Layouts */,
 				05A35E302B986CA700E002EB /* ModelView */,
 				05FEA7AD2B98431100C81A8C /* Fonts */,
@@ -215,6 +226,7 @@
 				053F2FE82B98872500FFBB5F /* CollectionViewCell.swift in Sources */,
 				05FEA7A92B8BF4E600C81A8C /* Color.swift in Sources */,
 				0551C6572B9AA5A500B6881A /* CustomLayout.swift in Sources */,
+				059611682BA6CA4000E1BA02 /* ExtensionUIImage.swift in Sources */,
 				05A35E322B986CC500E002EB /* Cards.swift in Sources */,
 				05FEA7902B8BBD5C00C81A8C /* AppDelegate.swift in Sources */,
 				05FEA7922B8BBD5C00C81A8C /* SceneDelegate.swift in Sources */,

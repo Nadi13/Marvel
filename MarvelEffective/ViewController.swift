@@ -4,13 +4,6 @@ class ViewController: UIViewController{
     
     private let collectionView = CollectionView()
     
-    private let triangleView: TriangleView = {
-        let triangleView = TriangleView(frame: CGRect(x: 0,y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
-        triangleView.translatesAutoresizingMaskIntoConstraints = false
-        triangleView.backgroundColor = .clear
-        return triangleView
-    }()
-    
     private lazy var logo: UIImageView = {
         let logo = UIImageView()
         logo.image = UIImage(named: "logo")
@@ -53,8 +46,9 @@ class ViewController: UIViewController{
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 120),
-            collectionView.heightAnchor.constraint(equalToConstant: collectionView.screenHeight*0.7)
+            collectionView.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 60),
+            collectionView.heightAnchor.constraint(equalToConstant: collectionView.screenHeight*0.7),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         collectionView.set(cells: Cards.fetchCards())
     }
@@ -63,8 +57,6 @@ class ViewController: UIViewController{
         super.viewDidLoad()
         
         view.backgroundColor = Colors.black
-        
-        view.addSubview(triangleView)
         
         setImage()
         setText()
@@ -81,6 +73,7 @@ class ViewController: UIViewController{
         collectionView.layout.previousOffset = collectionView.layout.updateOffset(collectionView)
         
         if let cell = collectionView.cellForItem(at:indexPath){
+            collectionView.updateTriangleColor(color: collectionView.cells[indexPath.row].image!.areaAverage())
             collectionView.transformCell(cell)
         }
     }
