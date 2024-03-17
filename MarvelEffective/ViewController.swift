@@ -73,8 +73,8 @@ class ViewController: UIViewController{
         collectionView.layout.previousOffset = collectionView.layout.updateOffset(collectionView)
         
         if let cell = collectionView.cellForItem(at:indexPath){
-            collectionView.updateTriangleColor(color: collectionView.cells[indexPath.row].image!.areaAverage())
             collectionView.transformCell(cell)
+            collectionView.updateTriangleColor(color: collectionView.cellColors[indexPath.item])
         }
     }
     

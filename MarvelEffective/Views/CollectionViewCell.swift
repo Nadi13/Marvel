@@ -35,7 +35,7 @@ class CollectionViewCell: UICollectionViewCell {
         nameHeroe.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20.0).isActive = true
         nameHeroe.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         nameHeroe.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25.0).isActive = true
-}
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

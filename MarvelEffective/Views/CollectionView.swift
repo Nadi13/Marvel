@@ -28,6 +28,8 @@ class CollectionView: UICollectionView, UICollectionViewDelegate, UICollectionVi
     
     let layout = CustomLayout()
     
+    var cellColors: [UIColor] = []
+    
     init() {
         super.init(frame: .zero, collectionViewLayout: layout)
         layout.scrollDirection = .horizontal
@@ -38,6 +40,7 @@ class CollectionView: UICollectionView, UICollectionViewDelegate, UICollectionVi
         backgroundView = triangleView
         
         backgroundColor = .none
+        showsHorizontalScrollIndicator = false
         contentInsetAdjustmentBehavior = .never
         contentInset = UIEdgeInsets(top: 0.0, left: cellSpacing,  bottom: 0.0, right: cellSpacing)
         decelerationRate = .fast
@@ -45,15 +48,19 @@ class CollectionView: UICollectionView, UICollectionViewDelegate, UICollectionVi
         dataSource = self
         delegate = self
         translatesAutoresizingMaskIntoConstraints = false
-        
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     func set(cells:[Cards]){
         self.cells = cells
+        setColorCell()
+        reloadData()
+        layoutIfNeeded()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -64,8 +71,16 @@ class CollectionView: UICollectionView, UICollectionViewDelegate, UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:CollectionViewCell.reuseID, for: indexPath) as! CollectionViewCell
         cell.mainImageView.image = cells[indexPath.row].image
         cell.nameHeroe.text = cells[indexPath.row].name
+        
         return cell
     }
+    
+    func setColorCell() {
+        cellColors.removeAll()
+        for cell in cells {
+            cellColors.append(cell.image!.areaAverage() ?? .blue)
+            }
+        }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize (width: itemW, height: itemH)
@@ -73,15 +88,15 @@ class CollectionView: UICollectionView, UICollectionViewDelegate, UICollectionVi
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if decelerate {
-            setupCell()
+                setupCell()
         }
     }
     
     func setupCell() {
         let indexPath = IndexPath(item: layout.currentPage, section: 0)
         if let cell = cellForItem(at: indexPath) {
-            updateTriangleColor(color: cells[indexPath.row].image!.areaAverage())
             transformCell(cell)
+            updateTriangleColor(color: cellColors[layout.currentPage])
         }
     }
     
