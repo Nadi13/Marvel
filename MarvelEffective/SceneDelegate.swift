@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  MarvelEffective
-//
-//  Created by Nadi on 25.02.2024.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -19,7 +12,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = ViewController()
+        
+        let controller = ViewController()
+        let navigationController = UINavigationController(rootViewController: controller)
+        
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
         
         self.window = window

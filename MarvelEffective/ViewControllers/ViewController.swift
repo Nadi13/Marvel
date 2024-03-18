@@ -2,7 +2,13 @@ import UIKit
 
 class ViewController: UIViewController{
     
-    private let collectionView = CollectionView()
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    let collectionView = CollectionView()
+    
+    var firstRun = true
     
     private lazy var logo: UIImageView = {
         let logo = UIImageView()
@@ -19,7 +25,7 @@ class ViewController: UIViewController{
     private func setImage(){
         view.addSubview(logo)
         NSLayoutConstraint.activate([
-            logo.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            logo.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: -10),
             logo.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
@@ -36,13 +42,14 @@ class ViewController: UIViewController{
     private func setText(){
         view.addSubview(label)
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 54),
+            label.topAnchor.constraint(equalTo: logo.bottomAnchor, constant: 40),
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
     
     private func setView() {
         view.addSubview(collectionView)
+
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -51,34 +58,39 @@ class ViewController: UIViewController{
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         collectionView.set(cells: Cards.fetchCards())
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         view.backgroundColor = Colors.black
         
         setImage()
         setText()
         setView()
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let indexPath = IndexPath(item: 1, section: 0)
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        
-        collectionView.layout.currentPage = indexPath.item
-        
-        collectionView.layout.previousOffset = collectionView.layout.updateOffset(collectionView)
-        
-        if let cell = collectionView.cellForItem(at:indexPath){
-            collectionView.transformCell(cell)
+        if firstRun {
+            firstRun = false
+            let indexPath = IndexPath(item: 1, section: 0)
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            
+            collectionView.layout.currentPage = indexPath.item
+            
+            collectionView.layout.previousOffset = collectionView.layout.updateOffset(collectionView)
+            
+            if let cell = collectionView.cellForItem(at:indexPath){
+                transformCell(cell)
+            }
         }
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
+
+    
 }
