@@ -22,6 +22,13 @@ class CollectionViewCell: UICollectionViewCell {
         return name
     }()
     
+    let triangleView: TriangleView = {
+        let triangleView = TriangleView(frame: CGRect(x: 0,y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+        triangleView.translatesAutoresizingMaskIntoConstraints = false
+        triangleView.backgroundColor = .clear
+        return triangleView
+    }()
+    
     override init(frame: CGRect){
         super.init(frame: frame)
         

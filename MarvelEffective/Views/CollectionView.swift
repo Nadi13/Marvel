@@ -1,8 +1,6 @@
 import Foundation
 import UIKit
-
-
-
+import Kingfisher
 class CollectionView: UICollectionView{
     
     var cells = [Cards]()
@@ -27,7 +25,6 @@ class CollectionView: UICollectionView{
         triangleView.backgroundColor = .clear
         return triangleView
     }()
-    
     init() {
         super.init(frame: .zero, collectionViewLayout: layout)
         
@@ -55,24 +52,26 @@ class CollectionView: UICollectionView{
         dataSource = self
         delegate = self
         translatesAutoresizingMaskIntoConstraints = false
-        
         reloadData()
         
     }
     
     func set(cells:[Cards]){
         self.cells = cells
-        
-        let indexPath = IndexPath(item: 1, section: 0)
-        updateTriangleColor(elem: cells[indexPath.item])
     }
     
-    func updateTriangleColor (elem: Cards) {
+    func updateTriangleColor(elem: Cards){
         guard let img = elem.image else {return}
-        triangleView.triangleColor = img.areaAverage ?? .red
+            KingfisherManager.shared.retrieveImage(with: img, completionHandler: {
+                result in
+                switch result{
+                case .success(let value):
+                    self.triangleView.triangleColor = value.image.areaAverage!
+                case .failure(_):
+                    self.triangleView.triangleColor = .red
+                }
+            })
     }
-
-    
      func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if decelerate {
             setupCell()
@@ -108,13 +107,9 @@ class CollectionView: UICollectionView{
         }
     }
     
-
-    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
         let indexPath = IndexPath(item: layout.currentPage, section: 0)
         let card = cells[indexPath.row]
-        
         updateTriangleColor(elem: card)
     }
 }

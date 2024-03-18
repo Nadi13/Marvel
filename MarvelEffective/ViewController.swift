@@ -76,8 +76,7 @@ class ViewController: UIViewController{
         if let cell = collectionView.cellForItem(at:indexPath){
             collectionView.transformCell(cell)
         }
-
-}
+    }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent

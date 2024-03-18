@@ -1,5 +1,6 @@
 import UIKit
 import Foundation
+import Kingfisher
 
 extension CollectionView: UICollectionViewDelegate{
     
@@ -15,15 +16,17 @@ extension CollectionView: UICollectionViewDelegate{
 }
 
 extension CollectionView: UICollectionViewDataSource{
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cells.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier:CollectionViewCell.reuseID, for: indexPath) as! CollectionViewCell
-        cell.mainImageView.image = cells[indexPath.row].image
+
+        cell.mainImageView.kf.setImage(with: self.cells[indexPath.row].image)
         cell.nameHeroe.text = cells[indexPath.row].name
+        
         return cell
     }
 }
