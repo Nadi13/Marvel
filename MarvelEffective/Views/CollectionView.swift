@@ -1,6 +1,6 @@
 import Foundation
 import UIKit
-
+import Kingfisher
 
 
 class CollectionView: UICollectionView{
@@ -27,7 +27,7 @@ class CollectionView: UICollectionView{
         triangleView.backgroundColor = .clear
         return triangleView
     }()
-    
+
     init() {
         super.init(frame: .zero, collectionViewLayout: layout)
         
@@ -62,14 +62,23 @@ class CollectionView: UICollectionView{
     
     func set(cells:[Cards]){
         self.cells = cells
-        
-        let indexPath = IndexPath(item: 1, section: 0)
-        updateTriangleColor(elem: cells[indexPath.item])
     }
     
     func updateTriangleColor (elem: Cards) {
         guard let img = elem.image else {return}
-        triangleView.triangleColor = img.areaAverage ?? .red
+        
+        DispatchQueue.main.async{
+            
+            KingfisherManager.shared.retrieveImage(with: img, completionHandler: {
+                result in
+                switch result{
+                case .success(let value):
+                    self.triangleView.triangleColor = value.image.areaAverage!
+                case .failure(_):
+                    self.triangleView.triangleColor = .red
+                }
+            })
+        }
     }
 
     
