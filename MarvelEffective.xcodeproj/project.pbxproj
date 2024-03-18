@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05238D3A2BA755A700F65161 /* ExtensionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05238D392BA755A700F65161 /* ExtensionCollectionView.swift */; };
+		05238D3A2BA755A700F65161 /* ExtensionControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05238D392BA755A700F65161 /* ExtensionControllerView.swift */; };
 		05238D3D2BA7BBB600F65161 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 05238D3C2BA7BBB600F65161 /* Kingfisher */; };
 		05238D402BA82A8A00F65161 /* ScreenDetailsControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05238D3F2BA82A8A00F65161 /* ScreenDetailsControllerView.swift */; };
 		053F2FE82B98872500FFBB5F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053F2FE72B98872500FFBB5F /* CollectionViewCell.swift */; };
@@ -29,7 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		05238D392BA755A700F65161 /* ExtensionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCollectionView.swift; sourceTree = "<group>"; };
+		05238D392BA755A700F65161 /* ExtensionControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionControllerView.swift; sourceTree = "<group>"; };
 		05238D3F2BA82A8A00F65161 /* ScreenDetailsControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenDetailsControllerView.swift; sourceTree = "<group>"; };
 		053F2FE72B98872500FFBB5F /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		0545D7C42B9B18BF009E55F5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -84,7 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				059611672BA6CA4000E1BA02 /* ExtensionUIImage.swift */,
-				05238D392BA755A700F65161 /* ExtensionCollectionView.swift */,
+				05238D392BA755A700F65161 /* ExtensionControllerView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -250,7 +250,7 @@
 				05238D402BA82A8A00F65161 /* ScreenDetailsControllerView.swift in Sources */,
 				0551C6572B9AA5A500B6881A /* CustomLayout.swift in Sources */,
 				059611682BA6CA4000E1BA02 /* ExtensionUIImage.swift in Sources */,
-				05238D3A2BA755A700F65161 /* ExtensionCollectionView.swift in Sources */,
+				05238D3A2BA755A700F65161 /* ExtensionControllerView.swift in Sources */,
 				05A35E322B986CC500E002EB /* Cards.swift in Sources */,
 				05FEA7902B8BBD5C00C81A8C /* AppDelegate.swift in Sources */,
 				05FEA7922B8BBD5C00C81A8C /* SceneDelegate.swift in Sources */,

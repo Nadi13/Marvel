@@ -20,7 +20,7 @@ extension ViewController: UICollectionViewDataSource{
         
         cell.mainImageView.kf.setImage(with: self.collectionView.cells[indexPath.row].image)
         cell.nameHeroe.text = self.collectionView.cells[indexPath.row].name
-      
+        
         return cell
     }
 }
@@ -28,8 +28,12 @@ extension ViewController: UICollectionViewDataSource{
 extension ViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.item == self.collectionView.layout.currentPage {
+            
             let page = ScreenDetailsControllerView()
-            navigationController?.pushViewController(page, animated: true)
+            
+            page.selectedCell = indexPath.item
+            
+            navigationController?.pushViewController(page, animated: false)
         }
     }
 }
@@ -90,6 +94,5 @@ extension ViewController{
         let indexPath = IndexPath(item: collectionView.layout.currentPage, section: 0)
         let card = collectionView.cells[indexPath.row]
         updateTriangleColor(elem: card)
-      
     }
 }

@@ -2,10 +2,6 @@ import UIKit
 
 class ViewController: UIViewController{
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     let collectionView = CollectionView()
     
     var firstRun = true
@@ -16,8 +12,8 @@ class ViewController: UIViewController{
         logo.contentMode = .scaleToFill
         logo.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            logo.heightAnchor.constraint(equalToConstant: 27),
-            logo.widthAnchor.constraint(equalToConstant: 128)
+            logo.heightAnchor.constraint(equalToConstant: collectionView.screenHeight*1/20),
+            logo.widthAnchor.constraint(equalToConstant: collectionView.screenWidth*1/2)
         ])
         return logo
     }()
@@ -48,8 +44,9 @@ class ViewController: UIViewController{
     }
     
     private func setView() {
+        
         view.addSubview(collectionView)
-
+        
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -65,14 +62,14 @@ class ViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         view.backgroundColor = Colors.black
         
         setImage()
         setText()
         setView()
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -90,7 +87,10 @@ class ViewController: UIViewController{
             }
         }
     }
-    
+}
 
-    
+class CustomNavigationController: UINavigationController{
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }

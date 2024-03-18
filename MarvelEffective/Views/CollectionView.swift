@@ -25,6 +25,7 @@ class CollectionView: UICollectionView{
         triangleView.backgroundColor = .clear
         return triangleView
     }()
+    
     init() {
         super.init(frame: .zero, collectionViewLayout: layout)
         
@@ -51,6 +52,7 @@ class CollectionView: UICollectionView{
         register(CollectionViewCell.self, forCellWithReuseIdentifier: CollectionViewCell.reuseID)
 
         translatesAutoresizingMaskIntoConstraints = false
+        
         reloadData()
         
     }
