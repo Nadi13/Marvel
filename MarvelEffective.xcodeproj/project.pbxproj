@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05238D3A2BA755A700F65161 /* ExtensionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05238D392BA755A700F65161 /* ExtensionCollectionView.swift */; };
+		05238D3A2BA755A700F65161 /* ExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05238D392BA755A700F65161 /* ExtensionViewController.swift */; };
 		05238D432BA8F6F100F65161 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 05238D422BA8F6F100F65161 /* Kingfisher */; };
+		05238D462BB55DD500F65161 /* DetailsScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05238D452BB55DD500F65161 /* DetailsScreenController.swift */; };
 		053F2FE82B98872500FFBB5F /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053F2FE72B98872500FFBB5F /* CollectionViewCell.swift */; };
 		0545D7C52B9B18BF009E55F5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0545D7C42B9B18BF009E55F5 /* Localizable.strings */; };
 		0545D7C72B9B1F22009E55F5 /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0545D7C62B9B1F22009E55F5 /* Inter-Bold.otf */; };
@@ -28,7 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		05238D392BA755A700F65161 /* ExtensionCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionCollectionView.swift; sourceTree = "<group>"; };
+		05238D392BA755A700F65161 /* ExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionViewController.swift; sourceTree = "<group>"; };
+		05238D452BB55DD500F65161 /* DetailsScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenController.swift; sourceTree = "<group>"; };
 		053F2FE72B98872500FFBB5F /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		0545D7C42B9B18BF009E55F5 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		0545D7C62B9B1F22009E55F5 /* Inter-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.otf"; sourceTree = "<group>"; };
@@ -61,6 +63,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05238D442BB55DA600F65161 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				05FEA7932B8BBD5C00C81A8C /* ViewController.swift */,
+				05238D452BB55DD500F65161 /* DetailsScreenController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		0551C6552B9AA58C00B6881A /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
@@ -73,7 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				059611672BA6CA4000E1BA02 /* ExtensionUIImage.swift */,
-				05238D392BA755A700F65161 /* ExtensionCollectionView.swift */,
+				05238D392BA755A700F65161 /* ExtensionViewController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -106,6 +117,7 @@
 		05FEA78E2B8BBD5C00C81A8C /* MarvelEffective */ = {
 			isa = PBXGroup;
 			children = (
+				05238D442BB55DA600F65161 /* ViewControllers */,
 				059611662BA6CA0C00E1BA02 /* Extension */,
 				0551C6552B9AA58C00B6881A /* Layouts */,
 				05A35E302B986CA700E002EB /* ModelView */,
@@ -114,7 +126,6 @@
 				05FEA78F2B8BBD5C00C81A8C /* AppDelegate.swift */,
 				05FEA7AA2B8C2ACA00C81A8C /* Views */,
 				05FEA7912B8BBD5C00C81A8C /* SceneDelegate.swift */,
-				05FEA7932B8BBD5C00C81A8C /* ViewController.swift */,
 				05FEA7982B8BBD5D00C81A8C /* Assets.xcassets */,
 				05FEA79D2B8BBD5D00C81A8C /* Info.plist */,
 			);
@@ -235,10 +246,11 @@
 				05A35E1D2B98483300E002EB /* FontSize.swift in Sources */,
 				055853692B9AFCAA0046CA09 /* CollectionView.swift in Sources */,
 				053F2FE82B98872500FFBB5F /* CollectionViewCell.swift in Sources */,
+				05238D462BB55DD500F65161 /* DetailsScreenController.swift in Sources */,
 				05FEA7A92B8BF4E600C81A8C /* Color.swift in Sources */,
 				0551C6572B9AA5A500B6881A /* CustomLayout.swift in Sources */,
 				059611682BA6CA4000E1BA02 /* ExtensionUIImage.swift in Sources */,
-				05238D3A2BA755A700F65161 /* ExtensionCollectionView.swift in Sources */,
+				05238D3A2BA755A700F65161 /* ExtensionViewController.swift in Sources */,
 				05A35E322B986CC500E002EB /* Cards.swift in Sources */,
 				05FEA7902B8BBD5C00C81A8C /* AppDelegate.swift in Sources */,
 				05FEA7922B8BBD5C00C81A8C /* SceneDelegate.swift in Sources */,
