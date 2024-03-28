@@ -12,8 +12,8 @@ class ViewController: UIViewController{
         logo.contentMode = .scaleToFill
         logo.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            logo.heightAnchor.constraint(equalToConstant: 27),
-            logo.widthAnchor.constraint(equalToConstant: 128)
+            logo.heightAnchor.constraint(equalToConstant: collectionView.screenHeight*1/20),
+            logo.widthAnchor.constraint(equalToConstant: collectionView.screenWidth*1/2)
         ])
         return logo
     }()

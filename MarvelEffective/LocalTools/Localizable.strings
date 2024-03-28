@@ -2,3 +2,6 @@
 "iron" = "Iron Man";
 "deadpool" = "Deadpool";
 "spider" = "Spider Man";
+"descriptionDeadpool" = "Please don’t make the super suit green...or animated!";
+"descriptionIron" = "I AM IRON MAN";
+"descriptionSpider" = "In iron suit";

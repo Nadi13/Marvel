@@ -7,8 +7,12 @@ extension ViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if indexPath.item == self.collectionView.layout.currentPage {
-                    let page = DetailsScreenController()
-                    navigationController?.pushViewController(page, animated: true)
+            let page = DetailsScreenController()
+            
+            page.selectedCell = indexPath.item
+            
+            navigationController?.pushViewController(page, animated: true)
+            
         } else {
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
             self.collectionView.layout.currentPage = indexPath.item
